@@ -358,23 +358,23 @@ app.factory('quizFactory', function() {
 
 app.controller('aboutCtrl', ['$scope', function($scope) {
     $scope.people = [{
-        name: "Owain",
+        name: "Owain van Brakel",
         image: "http://lorempixel.com/300/300/cats",
         story: "Lorum ipsum"
     }, {
-        name: "Jeroen",
+        name: "Jeroen Roos",
         image: "http://lorempixel.com/300/300/cats",
         story: "Lorum ipsum"
     }, {
-        name: "Shameer",
+        name: "Shameer Khan",
         image: "http://lorempixel.com/300/300/cats",
         story: "Lorum ipsum"
     }, {
-        name: "Martijn",
+        name: "Martijn Bakker",
         image: "http://lorempixel.com/300/300/cats",
         story: "Lorum ipsum"
     }, {
-        name: "Leon",
+        name: "Leon Landwaart",
         image: "http://lorempixel.com/300/300/cats",
         story: "Lorum ipsum"
     }];
