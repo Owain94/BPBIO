@@ -66,7 +66,7 @@ app.directive('quiz', function(quizFactory) {
                     scope.options = q.options;
                     scope.answer = q.answer;
 
-                    if (scope.id == 6 || scope.id == 7) {
+                    if (scope.id == 6 || scope.id == 7 || scope.id == 8 || scope.id == 9 || scope.id == 10 || scope.id == 11) {
                         scope.value = 1;
                     } else {
                         scope.value = 0
@@ -144,6 +144,9 @@ app.directive('quiz', function(quizFactory) {
 
                     case 2:
                         switch(scope.value) {
+                            case 0:
+                                break;
+
                             case 1: // VMBO
                                 if (scope.age < 21) {
                                     scope.reason = 1;
@@ -187,6 +190,8 @@ app.directive('quiz', function(quizFactory) {
                                 scope.reason = 2;
                                 scope.nextQuestion(6);
                             }
+                        } else if (scope.value == 0) {
+                            break;
                         } else {
                             scope.nextQuestion(6);
                         }
@@ -197,6 +202,8 @@ app.directive('quiz', function(quizFactory) {
                             if (scope.age < 21) {
                                 scope.reason = 1;
                                 scope.nextQuestion(99);
+                            } else if (scope.value == 0) {
+                                break;
                             } else {
                                 scope.reason = 2;
                                 scope.nextQuestion(6);
@@ -209,6 +216,8 @@ app.directive('quiz', function(quizFactory) {
                     case 5:
                         if (scope.value == 4) {
                             scope.nextQuestion();
+                        } else if (scope.value == 0) {
+                            break;
                         } else {
                             if (scope.age < 21) {
                                 scope.reason = 1;
@@ -221,8 +230,11 @@ app.directive('quiz', function(quizFactory) {
                         break;
 
                     default:
-                        scope.score += scope.value;
-                        scope.nextQuestion();
+
+                        if (scope.value != 0) {
+                            scope.score += scope.value;
+                            scope.nextQuestion();
+                        }
                 }
             };
 
