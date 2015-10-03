@@ -310,3 +310,16 @@ footer, .push {
 .bg-red {
     background-color: red;
 }
+
+.bqstart {
+    float: left;
+    font-size: 700%;
+    color: rgb(233,30,99);
+    padding-top: 20px;
+}
+
+.bqend {
+    float: right;
+    font-size: 700%;
+    color: rgb(233,30,99);
+}
