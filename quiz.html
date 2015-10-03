@@ -1,0 +1,46 @@
+<div class="quiz-area" ng-show="inProgress">
+    <div ng-show="!quizOver">
+        <h4 id="question"><span ng-bind="name" ng-hide="id == 0"></span>{{ question }}</h4>
+
+        <md-radio-group ng-model="value" class="md-primary">
+            <md-radio-button ng-repeat="option in options" ng-value="option.value" ng-show="options.length > 0" name="answer">
+                {{ option.answer }}<br/>
+            </md-radio-button>
+        </md-radio-group>
+
+        <md-input-container ng-show="id == 0">
+            <label>Naam:</label>
+            <input required name="name" ng-model="name" id="name">
+        </md-input-container>
+
+        <md-input-container ng-show="id == 1">
+            <label>Leeftijd</label>
+            <input required name="age" type="number" ng-model="age" required md-maxlength="2" ng-pattern="/^1234567890$/" id="age">
+        </md-input-container>
+
+        <md-slider flex class="md-primary" md-discrete ng-model="value" step="1" min="1" max="5" aria-label="value" ng-show="id == 6 || id == 7 || id == 8 || id == 9">
+        </md-slider>
+
+        <br />
+
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="checkAnswer()">Volgende</button>
+    </div>
+
+    <div ng-show="quizOver">
+        <h4>Resultaat</h4>
+
+        <p class="text">{{ result }}</p>
+
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="reset()">Opnieuw</button>
+    </div>
+</div>
+
+<div class="intro" ng-show="!inProgress">
+    <h4>Quiz</h4>
+
+    <p class="text">
+        Wil jij kijken of bio-informatica een opleiding is voor jou? klik op de onderstaande knop om een quiz te doen waardoor je kan uitvinden of deze opleiding bij jou past!
+    </p>
+
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id="startQuiz" ng-click="start()">Start de quiz</button>
+</div>
