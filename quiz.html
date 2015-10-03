@@ -1,6 +1,6 @@
 <div class="quiz-area" ng-show="inProgress">
     <div ng-show="!quizOver">
-        <h4 id="question"><span ng-bind="name" ng-hide="id == 0"></span>{{ question }}</h4>
+        <h4 id="question">{{ question }}</h4>
 
         <md-radio-group ng-model="value" class="md-primary">
             <md-radio-button ng-repeat="option in options" ng-value="option.value" ng-show="options.length > 0" name="answer">

@@ -77,7 +77,7 @@ app.directive('quiz', function(quizFactory) {
                     scope.quizOver = true;
 
                     var str = "beste ";
-                    str += scope.name;
+                    str += scope.name+ ", ";
 
                     if (scope.reason == 1) {
                         // 1 = te lage voor opleiding EN te jong
@@ -125,7 +125,7 @@ app.directive('quiz', function(quizFactory) {
                 switch(scope.id) {
                     case 0:
                         if (name.length > 0) {
-                            scope.name = name + ", ";
+                            scope.name = name;
                             scope.nextQuestion();
                         }
                         break;
@@ -259,10 +259,10 @@ app.factory('quizFactory', function() {
             question: "Wat is je naam?"
         }, {
             // Vraag 1
-            question: "wat is je leeftijd?"
+            question: "Wat is je leeftijd?"
         }, {
             // Vraag 2
-            question: "wat voor diploma heb je?",
+            question: "Wat voor diploma heb je?",
             options: [{
                 answer: 'VMBO',
                 value: 1
@@ -282,7 +282,7 @@ app.factory('quizFactory', function() {
         }, {
 
             // Vraag 3
-            question: "welk profiel had je?",
+            question: "Welk profiel had je?",
             options: [{
                 answer: 'Natuur & Gezondheid (Profiel N&G) ',
                 value: 1
@@ -299,7 +299,7 @@ app.factory('quizFactory', function() {
         }, {
 
             // Vraag 4
-            question: "heb je wiskunde A of wiskunde B gevolgd?",
+            question: "Heb je wiskunde A of wiskunde B gevolgd?",
             options: [{
                 answer: 'Ja',
                 value: 1
@@ -310,7 +310,7 @@ app.factory('quizFactory', function() {
         }, {
 
             // Vraag 5
-            question: "welk niveau heb je afgerond??",
+            question: "Welk niveau heb je afgerond??",
             options: [{
                 answer: 'MBO niveau 1',
                 value: 1
@@ -326,22 +326,22 @@ app.factory('quizFactory', function() {
             }]
         }, {
             // vraag 6
-            question: "hoe leuk vind jij biologie? (1-5)"
+            question: "Hoe leuk vind jij biologie? (1-5)"
         }, {
             // vraag 7
-            question: "hoe leuk vind jij scheikunde? (1-5)"
+            question: "Hoe leuk vind jij scheikunde? (1-5)"
         }, {
             // vraag 8
-            question: "hoe leuk vind jij het om samen te werken met andere? (1-5)"
+            question: "Hoe leuk vind jij het om samen te werken met andere? (1-5)"
         }, {
             // vraag 9
-            question: "hoe leuk lijkt het jou om zelf applicaties te ontwikkelen die bijvoorbeeld data verwerken? (1-5)"
+            question: "Hoe leuk lijkt het jou om zelf applicaties te ontwikkelen die bijvoorbeeld data verwerken? (1-5)"
         }, {
             // vraag 10
-            question: "hoe leuk vind jij het om moeilijke puzzels te ontrafelen? (1-5)"
+            question: "Hoe leuk vind jij het om moeilijke puzzels te ontrafelen? (1-5)"
         }, {
             // vraag 11
-            question: "hoe creatief vind jij jezelf in bijvoorbeeld het oplossen van problemen? (1-5)"
+            question: "Hoe creatief vind jij jezelf in bijvoorbeeld het oplossen van problemen? (1-5)"
         }
     ];
 
