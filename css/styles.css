@@ -272,6 +272,9 @@ footer, .push {
 .small-text {
     font-size: 8px;
 }
+.icon-text {
+    font-size: 14px;
+}
 .text-headers {
     font-size: 25px;
     font-weight: 400;
