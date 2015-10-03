@@ -109,7 +109,9 @@ app.directive('quiz', function(quizFactory) {
 
                     } else if (scope.score >= 18 && scope.score <= 23) {
 
-                    } else if (scope.score >= 24 && scope.score <= 30) {
+                    } else if (scope.score >= 24 && scope.score <= 29) {
+
+                    } else if (scope.score == 30) {
 
                     }
 
