@@ -265,59 +265,38 @@ footer, .push {
 .mdl-demo .mdl-menu__container {
     z-index: 99;
 }
-
- .demo-card-wide.mdl-card {
-     width: 512px;
- }
-.demo-card-wide > .mdl-card__title {
-    color: #fff;
-    height: 176px;
-    background: url('../img/martin-card.jpg') center / cover;
-}
-.demo-card-wide > .mdl-card__menu {
-    color: #fff;
-}
-
 .text {
     text-align: justify;
     text-justify: inter-word;
 }
-
 .small-text {
     font-size: 8px;
 }
-
 .text-headers {
     font-size: 25px;
     font-weight: 400;
     line-height: 34px;
 }
-
 .text-border > th, td {
     border: 1px solid black;
     padding-left: 5px;
     padding-right: 5px;
 }
-
 .bg-green {
     background-color: lawngreen;
 }
-
 .bg-yellow {
     background-color: yellow;
 }
-
 .bg-red {
     background-color: red;
 }
-
 .bqstart {
     float: left;
     font-size: 700%;
     color: rgb(233,30,99);
     padding-top: 20px;
 }
-
 .bqend {
     float: right;
     font-size: 700%;
