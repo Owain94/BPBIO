@@ -23,7 +23,7 @@
 
         <br />
 
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="checkAnswer()">Volgende</button>
+        <md-button class="md-primary md-raised" ng-click="checkAnswer()">Volgende</md-button>
     </div>
 
     <div ng-show="quizOver">
@@ -31,7 +31,7 @@
 
         <p class="text">{{ result }}</p>
 
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="reset()">Opnieuw</button>
+        <md-button class="md-primary md-raised" ng-click="reset()">Opnieuw</md-button>
     </div>
 </div>
 
@@ -42,5 +42,5 @@
         Wil jij kijken of bio-informatica een opleiding is voor jou? klik op de onderstaande knop om een quiz te doen waardoor je kan uitvinden of deze opleiding bij jou past!
     </p>
 
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id="startQuiz" ng-click="start()">Start de quiz</button>
+    <md-button class="md-primary md-raised" ng-click="start()">Start de quiz</md-button>
 </div>
