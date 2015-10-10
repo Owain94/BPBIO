@@ -7,12 +7,12 @@ var app = angular.module('app', [
     'ngAria'
 ]);
 
-app.directive('ngEnter', function() {
+app.directive('bpbioEnter', function() {
     return function(scope, element, attrs) {
         element.bind("keydown keypress", function(event) {
             if(event.which === 13) {
                 scope.$apply(function() {
-                    scope.$eval(attrs.ngEnter, {'event': event});
+                    scope.$eval(attrs.bpbioEnter, {'event': event});
                 });
 
                 event.preventDefault();
@@ -27,7 +27,7 @@ app.config(function($mdThemingProvider) {
         .accentPalette('light-blue');
 });
 
-app.directive('quiz', function(quizFactory) {
+app.directive('bpbioQuiz', function(quizFactory) {
     return {
         restrict: 'AE',
         scope: {},
