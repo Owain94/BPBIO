@@ -375,23 +375,23 @@ app.factory('quizFactory', function() {
 app.controller('aboutCtrl', ['$scope', function($scope) {
     $scope.people = [{
         name: "Owain van Brakel",
-        image: "http://lorempixel.com/300/300/cats",
+        image: "http://lorempixel.com/1000/1000/cats?cache=0",
         info: "Lorum ipsum"
     }, {
         name: "Jeroen Roos",
-        image: "http://lorempixel.com/300/300/cats",
+        image: "http://lorempixel.com/1000/1000/cats?cache=1",
         info: "Lorum ipsum"
     }, {
         name: "Shameer Khan",
-        image: "http://lorempixel.com/300/300/cats",
+        image: "http://lorempixel.com/1000/1000/cats?cache=2",
         info: "Lorum ipsum"
     }, {
         name: "Martijn Bakker",
-        image: "http://lorempixel.com/300/300/cats",
+        image: "http://lorempixel.com/1000/1000/cats?cache=3",
         info: "Lorum ipsum"
     }, {
         name: "Leon Landwaart",
-        image: "http://lorempixel.com/300/300/cats",
+        image: "http://lorempixel.com/1000/1000/cats?cache=4",
         info: "Lorum ipsum"
     }];
 }]);
