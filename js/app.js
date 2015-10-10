@@ -376,22 +376,22 @@ app.controller('aboutCtrl', ['$scope', function($scope) {
     $scope.people = [{
         name: "Owain van Brakel",
         image: "http://lorempixel.com/300/300/cats",
-        story: "Lorum ipsum"
+        info: "Lorum ipsum"
     }, {
         name: "Jeroen Roos",
         image: "http://lorempixel.com/300/300/cats",
-        story: "Lorum ipsum"
+        info: "Lorum ipsum"
     }, {
         name: "Shameer Khan",
         image: "http://lorempixel.com/300/300/cats",
-        story: "Lorum ipsum"
+        info: "Lorum ipsum"
     }, {
         name: "Martijn Bakker",
         image: "http://lorempixel.com/300/300/cats",
-        story: "Lorum ipsum"
+        info: "Lorum ipsum"
     }, {
         name: "Leon Landwaart",
         image: "http://lorempixel.com/300/300/cats",
-        story: "Lorum ipsum"
+        info: "Lorum ipsum"
     }];
 }]);
