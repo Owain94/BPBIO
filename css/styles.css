@@ -53,8 +53,7 @@ footer, .push {
     height: 64px;
 }
 .mdl-demo .mdl-layout__tab-bar {
-    padding: 0;
-    padding-left: 16px;
+    padding: 0 0 0 16px;
     box-sizing: border-box;
     height: 100%;
     width: 100%;
@@ -68,8 +67,7 @@ footer, .push {
     height: 4px;
 }
 .mdl-demo main > .mdl-layout__tab-panel {
-    padding: 8px;
-    padding-top: 48px;
+    padding: 48px 8px 8px;
 }
 .mdl-demo .mdl-card {
     height: auto;
@@ -193,8 +191,7 @@ footer, .push {
 }
 .mdl-demo section .section__text h5 {
     font-size: inherit;
-    margin: 0;
-    margin-bottom: 0.5em;
+    margin: 0 0 0.5em;
 }
 .mdl-demo section .section__text a {
     text-decoration: none;
@@ -239,8 +236,7 @@ footer, .push {
 .mdl-demo .toc {
     border-left: 4px solid #C1EEF4;
     margin: 24px;
-    padding: 0;
-    padding-left: 8px;
+    padding: 0 0 0 8px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
