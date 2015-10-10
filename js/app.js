@@ -11,7 +11,7 @@ app.directive('ngEnter', function() {
     return function(scope, element, attrs) {
         element.bind("keydown keypress", function(event) {
             if(event.which === 13) {
-                scope.$apply(function(){
+                scope.$apply(function() {
                     scope.$eval(attrs.ngEnter, {'event': event});
                 });
 
@@ -40,10 +40,14 @@ app.directive('quiz', function(quizFactory) {
                 scope.inProgress = true;
 
                 scope.name = "";
+                scope.age = "";
+
+                scope.score = 0
 
                 /*
                     1 = te lage voor opleiding EN te jong
                     2 = te lage vooropleiding maar wel 21 jaar of ouder
+                    3 = geen vooropleiding EN te jong
                     4 = geen vooropleiding maar wel 21 jaar of ouder
 
                 */
@@ -54,9 +58,6 @@ app.directive('quiz', function(quizFactory) {
 
             scope.reset = function() {
                 scope.inProgress = false;
-                scope.score = 0;
-
-                scope.name = "";
             };
 
             scope.getQuestion = function() {
@@ -71,50 +72,65 @@ app.directive('quiz', function(quizFactory) {
                     } else {
                         scope.value = 0
                     }
-
-
                 } else {
                     scope.quizOver = true;
 
-                    var str = "beste ";
-                    str += scope.name+ ", ";
+                    var str = "Beste ";
+                    str += scope.name + ", ";
 
-                    if (scope.reason == 1) {
-                        // 1 = te lage voor opleiding EN te jong
+                    if (scope.reason == 1 || scope.reason == 3) {
+                        scope.extra_info = false;
 
-                        str += "helaas kan je deze opleiding niet volgen omdat je vooropleiding niet voldoet aan de toelatings eisen. Over ";
+                        if (scope.reason == 1) {
+                            // 1 = te lage voor opleiding EN te jong
+                            str += "helaas kan je deze opleiding niet volgen omdat je vooropleiding niet voldoet aan de toelatings eisen. ";
+                        } else if (scope.reason == 3) {
+                            // 3 = geen vooropleiding EN te jong
+                            str += "helaas kan je deze opleiding niet volgen zonder een vooropleiding gedaan te hebben. ";
+                        }
+
+                        str += "Over ";
                         str += 21 - scope.age;
-                        str += " jaar als je 21 bent zou je een toelatings toets kunnen doen waardoor je alsnog aangenomen zou kunnen worden."
-                    } else if (scope.reason == 3) {
-                        // 3 = geen vooropleiding EN te jong
+                        str += " jaar als je 21 bent zou je een toelatings toets kunnen doen waardoor je alsnog aangenomen zou kunnen worden. "
+                    } else {
+                        scope.extra_info = true;
 
-                        str += "helaas kan je deze opleiding niet volgen zonder een vooropleiding gedaan te hebben. Over ";
-                        str += 21 - scope.age;
-                        str += " jaar als je 21 bent zou je een toelatings toets kunnen doen waardoor je alsnog aangenomen zou kunnen worden."
+                        if (scope.id == 2 || scope.id == 4) {
+                            if (scope.id == 2) {
+                                str += "Aangezien je vooropleiding niet aan de eisen voldoet zou je deze opleiding eigenlijk niet kunnen volgen. "
+                            } else if (scope.id = 4) {
+                                str += "Aangezien je geen opleiding hiervoor hebt gedaan zou je deze opleiding eigenlijk niet kunnen volgen. "
+                            }
+
+                            str += "Maar aangezien je " + scope.age + " jaar oud bent kan je een toelatings toets doen waardoor je alsnog anagenomen zou kunnen worden. "
+                        }
+                        /*
+                         * Minimaal 6 punten
+                         * Maximaal 30 punten
+                         *
+                         * 6  - 10
+                         * 11 - 17
+                         * 18 - 23
+                         * 24 - 30
+                         */
+
+                        if (scope.score <= 10) {
+                            // Ga een andere opleiding volgen en ga weg hier
+                            str += "Aan de hand van jouw antwoorden lijkt deze opleiding totaal niet geschikt voor jou. Je zou langs kunnen komen op de één van de open dagen en je in kunnen schrijven voor het proefstuderen maar een andere opleiding zou waarschijnlijk beter bij je passen."
+                        } else if (scope.score >= 11 && scope.score <= 17) {
+                            // Niet echt jou ding
+                            str += "Aan de hand van jouw antwoorden lijkt deze opleiding niet echt voor jou weggelegd te zijn. Je zou langs kunnen komen op één van de open dagen en je in kunnen schrijven voor het proefstuderen maar een andere opleiding zou waarschijnlijk beter bij je passen."
+                        } else if (scope.score >= 18 && scope.score <= 23) {
+                            // Misschien iets voor jou misschien even naar de opendag gaan en inschrijven voor proefstuderen
+                            str += "Aan de hand van jouw antwoorden kan deze opleiding misschien wat voor jou zijn of misschien niet. Je zou een keer langs kunnen komen op één van de open dagen dan kan je beter zien wat de opleiding bio-infomatica inhoudt."
+                        } else if (scope.score >= 24 && scope.score <= 29) {
+                            // Ik zou sowieso even naar de open dag gaan en je zeker voor proefstuderen inschrijven want wij denken dat dit echt iets voor jou kan zijn
+                            str += "Aan de hand van jou antwoorden lijkt deze opleiding best wel geschikt voor jou. Kom een keer langs op één van de open dagen en je zou je in kunnen schrijven voor proefstuderen dan kan je een dagje mee lopen met bio-infomatice studenten. Zo kan je beter inschatten of deze opleiding wat voor jou zou kunnen zijn."
+                        } else if (scope.score == 30) {
+                            // Echt jou ding
+                            str += "Aan de hand van jouw antwoorden lijkt deze opleiding helemaal voor jou weggelegd te zijn! Kom eens een keer lang op één van de open dagen en schrijf je in voor het proefstuderen dan kan je een dagje meelopen met bio-informatica studenten."
+                        }
                     }
-
-                    /*
-                     * Minimaal 6 punten
-                     * Maximaal 30 punten
-                     *
-                     * 6  - 10
-                     * 11 - 17
-                     * 18 - 23
-                     * 24 - 30
-                     */
-
-                    if (scope.score <= 10) {
-
-                    } else if (scope.score >= 11 && scope.score <= 17) {
-
-                    } else if (scope.score >= 18 && scope.score <= 23) {
-
-                    } else if (scope.score >= 24 && scope.score <= 29) {
-
-                    } else if (scope.score == 30) {
-
-                    }
-
 
                     scope.result = str;
                 }
@@ -133,13 +149,11 @@ app.directive('quiz', function(quizFactory) {
                         break;
 
                     case 1:
-                        if (age.length > 0) {
+                        if (age.length > 0 && age.length < 3) {
                             age = Number(age);
                             if (!isNaN(age)) {
                                 scope.age = age;
                                 scope.nextQuestion();
-                            } else {
-
                             }
                         }
                         break;
