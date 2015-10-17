@@ -9,11 +9,11 @@
 
     <meta name="theme-color" content="#E91E63">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.pink-light_blue.min.css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="//storage.googleapis.com/code.getmdl.io/1.0.4/material.pink-blue.min.css" />
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://gitcdn.xyz/repo/angular/bower-material/master/angular-material.css">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.11.4/angular-material.min.css">
 </head>
 <!--<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">-->
 <body class="mdl-demo mdl-color-text--grey-700 mdl-base">
@@ -31,6 +31,7 @@
             <a href="#bioinformatics" class="mdl-layout__tab">Bio-informatica</a>
             <a href="#about" class="mdl-layout__tab">Over ons</a>
             <a href="#quiz" class="mdl-layout__tab">Quiz</a>
+            <a href="#contact" class="mdl-layout__tab">Contact</a>
         </div>
     </header>
 
@@ -136,7 +137,6 @@
 
 
         <div class="mdl-layout__tab-panel" id="bioinformatics">
-
 
             <section class="section--center mdl-grid">
                 <div class="mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
@@ -442,7 +442,7 @@
                                         Wat houd metabolomics in, en wat moet ik mij daarbij voorstellen?
                                     </p>
                                     <p class="text">Metabolomics is de studie die kijkt naar hoe metabolieten bijdragen aan chemische processen. Metabolieten zijn de eindproducten van de processen die in een cel voorkomen. Het valt onder de systeembiologie (die bestudeert biologische systemen als een geheel).
-                                    Glucose bijvoorbeeld is een metaboliet, aangezien glucose in (planten)cellen gemaakt wordt door middel van koolstofdioxide (CO<span class="small-text">2</span>) en water (H<span class="small-text">2</span>O):
+                                        Glucose bijvoorbeeld is een metaboliet, aangezien glucose in (planten)cellen gemaakt wordt door middel van koolstofdioxide (CO<span class="small-text">2</span>) en water (H<span class="small-text">2</span>O):
                                     </p>
                                     <p>6 CO<span class="small-text">2</span> + 6 H<span class="small-text">2</span>O <i class="material-icons icon-text">forward</i> C<span class="small-text">6</span>H<span class="small-text">12</span>O<span class="small-text">6</span> + 6 O<span class="small-text">2</span></p>
                                     <p class="text">Voor de rest zijn er nog meer metabolieten zoals: aminozuren, ATP etc.
@@ -612,6 +612,80 @@
                 </div>
             </section>
         </div>
+
+        <div class="mdl-layout__tab-panel mdl-contact" id="contact">
+            <map zoom="16" center="52.167533, 4.471095" disable-default-u-i="true" scrollwheel="false" class="md-whiteframe-8dp">
+                <info-window id="1" position="52.167533, 4.471095" visible="true">
+                    <div ng-non-bindable="" class="mdl-info-window">
+                        <img src="https://www.hsleiden.nl/binaries/listImageLarge/content/gallery/hsl/logos/logo.png" class="mdl-info-window-img" />
+
+                        <p class="mdl-info-window-p">
+                            Hogeschool Leiden <br />
+                            Zernikedreef 11 <br />
+                            2333 CK Leiden
+                        </p>
+                    </div>
+                </info-window>
+            </map>
+
+            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-margin-20">
+                <div class="mdl-cell mdl-cell--12-col">
+
+                    <md-card class="md-whiteframe-8dp" ng-controller="contactCtrl">
+                        <md-card-content>
+                            <h4>Contact</h4>
+
+                            <div layout="column" ng-cloak>
+
+                                <md-content layout-padding>
+
+                                    <form name="contactForm">
+
+                                        <md-input-container class="md-icon-float">
+                                            <label>Naam:</label>
+                                            <md-icon class="name">person</md-icon>
+                                            <input ng-model="contact.name" type="text" required>
+
+                                            <div ng-messages="contactForm.name.$error">
+                                                <div ng-message="required">This is required.</div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container class="md-icon-float">
+                                            <label>Email:</label>
+                                            <md-icon class="email">email</md-icon>
+                                            <input ng-model="contact.email" type="email" ng-pattern="/^.+@.+\..+$/" required>
+
+                                            <div ng-messages="contactForm.email.$error">
+                                                <div ng-message="required">This is required.</div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container class="md-icon-float">
+                                            <label>Bericht:</label>
+                                            <md-icon class="email">question_answer</md-icon>
+                                            <textarea ng-model="contact.message" required></textarea>
+
+                                            <div ng-messages="contactForm.message.$error">
+                                                <div ng-message="required">This is required.</div>
+                                            </div>
+                                        </md-input-container>
+
+                                    </form>
+
+                                </md-content>
+
+                            </div>
+
+                            <div class="md-actions" layout="row" layout-align="end center">
+                                <md-button class="md-primary md-raised" ng-click="sendMessage()">Verstuur</md-button>
+                            </div>
+                        </md-card-content>
+                    </md-card>
+
+                </div>
+            </section>
+        </div>
     </main>
 </div>
 
@@ -619,18 +693,24 @@
 <script src="//storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
 
 <!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <!-- Angular Material Dependencies -->
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-aria.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-messages.js"></script>
 
 <!-- Angular Material Javascript using GitCDN to load directly from `bower-material/master` -->
-<script src="//gitcdn.xyz/repo/angular/bower-material/master/angular-material.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angular_material/0.11.4/angular-material.min.js"></script>
+
+<!-- Google maps -->
+<script src="//maps.googleapis.com/maps/api/js?v=3.exp&libraries=weather,visualization,panoramio"></script>
+<script src="js/ng-map.js"></script>
 
 <!-- Quiz js -->
 <script src="js/app.js"></script>
 
 </body>
 </html>
+

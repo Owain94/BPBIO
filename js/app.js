@@ -4,7 +4,9 @@
 
 var app = angular.module('app', [
     'ngMaterial',
-    'ngAria'
+    'ngAria',
+    'ngMap',
+    'ngMessages'
 ]);
 
 app.directive('bpbioEnter', function() {
@@ -24,7 +26,7 @@ app.directive('bpbioEnter', function() {
 app.config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('pink')
-        .accentPalette('light-blue');
+        .accentPalette('blue');
 });
 
 app.directive('bpbioQuiz', function(quizFactory) {
@@ -40,17 +42,8 @@ app.directive('bpbioQuiz', function(quizFactory) {
                 scope.inProgress = true;
 
                 scope.name = "";
-                scope.age = "";
 
-                scope.score = 0
-
-                /*
-                    1 = te lage voor opleiding EN te jong
-                    2 = te lage vooropleiding maar wel 21 jaar of ouder
-                    3 = geen vooropleiding EN te jong
-                    4 = geen vooropleiding maar wel 21 jaar of ouder
-
-                */
+                scope.score = 0;
                 scope.reason = -1;
 
                 scope.getQuestion();
@@ -137,24 +130,16 @@ app.directive('bpbioQuiz', function(quizFactory) {
             };
 
             scope.checkAnswer = function() {
-                var name = $('#name').val();
-                var age = $('#age').val();
-
                 switch(scope.id) {
                     case 0:
-                        if (name.length > 0) {
-                            scope.name = name;
+                        if (scope.name.length > 0) {
                             scope.nextQuestion();
                         }
                         break;
 
                     case 1:
-                        if (age.length > 0 && age.length < 3) {
-                            age = Number(age);
-                            if (!isNaN(age)) {
-                                scope.age = age;
-                                scope.nextQuestion();
-                            }
+                        if (scope.age.length > 0 && scope.age.length < 3 && !isNaN(scope.age)) {
+                            scope.nextQuestion();
                         }
                         break;
 
@@ -372,7 +357,7 @@ app.factory('quizFactory', function() {
     };
 });
 
-app.controller('aboutCtrl', ['$scope', function($scope) {
+app.controller('aboutCtrl', function($scope) {
     $scope.people = [{
         name: "Owain van Brakel",
         image: "http://lorempixel.com/1000/1000/cats?cache=0",
@@ -394,4 +379,48 @@ app.controller('aboutCtrl', ['$scope', function($scope) {
         image: "http://lorempixel.com/1000/1000/cats?cache=4",
         info: "Lorum ipsum"
     }];
-}]);
+});
+
+app.controller('contactCtrl', function($scope, $mdToast) {
+    $scope.contact = {
+        name: "",
+        email: "",
+        message: ""
+    };
+
+    $scope.sendMessage = function() {
+        var error = false;
+        var string = "";
+
+        if ($scope.contact.name == "") {
+            error = true;
+            string += "naam";
+        }
+        if ($scope.contact.email == "") {
+            error = true;
+            if (string.length > 0) {
+                string += ", ";
+            }
+            string += "email";
+        }
+        if ($scope.contact.message == "") {
+            error = true;
+            if (string.length > 0) {
+                string += ", ";
+            }
+            string += "bericht";
+        }
+
+        if (error) {
+            $mdToast.show($mdToast.simple().content("U heeft geen of geen geldige " + string + " ingevuld!").position('top right'));
+        } else {
+            $mdToast.show($mdToast.simple().content('Uw bericht is verzonden!').position('top right'));
+
+            $scope.contact = {
+                name: "",
+                email: "",
+                message: ""
+            };
+        }
+    };
+});

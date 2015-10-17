@@ -301,3 +301,28 @@ footer, .push {
     font-size: 700%;
     color: rgb(233,30,99);
 }
+.mdl-contact {
+    padding: 0 !important;
+}
+
+.mdl-info-window {
+    display: table;
+    position: static;
+    height: 75px;
+    width: 190px;
+}
+
+.mdl-info-window-img {
+    position: absolute;
+    height: 75px;
+}
+
+.mdl-info-window-p {
+    position: absolute;
+    margin-left: 69px;
+}
+
+.mdl-margin-20 {
+    margin-top: 20px;
+}
+

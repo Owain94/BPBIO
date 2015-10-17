@@ -14,8 +14,8 @@
         </md-input-container>
 
         <md-input-container ng-show="id == 1">
-            <label>Leeftijd</label>
-            <input required name="age" type="number" ng-model="age" required md-maxlength="2" ng-pattern="/^1234567890$/" id="age" bpbio-enter="checkAnswer()">
+            <label>Leeftijd:</label>
+            <input required name="age" ng-model="age" id="age" md-maxlength="2" bpbio-enter="checkAnswer()">
         </md-input-container>
 
         <md-slider flex class="md-primary" md-discrete ng-model="value" step="1" min="1" max="5" aria-label="value" ng-show="id == 6 || id == 7 || id == 8 || id == 9 || id == 10 || id == 11">
