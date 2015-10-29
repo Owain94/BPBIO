@@ -183,14 +183,8 @@ app.directive('bpbioQuiz', function(quizFactory) {
                         break;
 
                     case 3:
-                        if (scope.value == 2) {
-                            if (scope.age < 21) {
-                                scope.reason = 1;
-                                scope.nextQuestion(99);
-                            } else {
-                                scope.reason = 2;
-                                scope.nextQuestion(6);
-                            }
+                        if (scope.value == 3) {
+                            scope.nextQuestion(4)
                         } else if (scope.value == 0) {
                             break;
                         } else {
@@ -199,7 +193,7 @@ app.directive('bpbioQuiz', function(quizFactory) {
                         break;
 
                     case 4:
-                        if (scope.value == 2) {
+                        if (scope.value == 3) {
                             if (scope.age < 21) {
                                 scope.reason = 1;
                                 scope.nextQuestion(99);
@@ -360,20 +354,20 @@ app.factory('quizFactory', function() {
 app.controller('aboutCtrl', function($scope) {
     $scope.people = [{
         name: "Owain van Brakel",
-        image: "http://lorempixel.com/1000/1000/cats?cache=0",
-        info: "Lorum ipsum"
+        image: "/img/about/Owain.jpg",
+        info: "Vanaf de middelbare school heb ik vakken zoals biologie en scheikunde altijd leuk gevonden. Ik had alleen besloten dat ik liever met m’n handen wilde werken waardoor ik uiteindelijk heb gekozen voor de richting elektrotechniek wat ik ook heel erg leuk vond. Na de middelbare school ben ik doorgestroomd naar mediatechnologie mbo-niveau 4 op het Grafisch Lyceum te Rotterdam, dit viel zacht gezegd heel erg tegen. Alhoewel ik websites en applicaties ontwikkelen wel heel erg leuk vond. Uiteindelijk hebben we op school alleen de basis dingen geleerd en kwam het erop neer dat we zelf alles maar moesten uitzoeken als we meer wilde leren. Met tegenzin heb ik alsnog de opleiding afgemaakt omdat ik het zonde vond om af te haken. Vervolgens ben ik op zoek gegaan naar een hbo-opleiding in de informatica richting. Toen kwam ik erachter dat alle opleidingen van de reguliere informatica mij eigenlijk niet echt interesseerde of dat ik er eigenlijk weinig zou gaan leren door de vooropleiding die ik heb  gevolgd heb. Uiteindelijk kwam ik er op de site van de hogeschool Leiden achter dat er ook een opleiding bio-informatica bestond. Hier heb ik vervolgens meer informatie over opgezocht en vanaf dat moment was de knoop eigenlijk snel doorgehakt aangezien alles wat de opleiding biedt mij wel interesseert."
     }, {
         name: "Jeroen Roos",
-        image: "http://lorempixel.com/1000/1000/cats?cache=1",
-        info: "Lorum ipsum"
+        image: "/img/about/Jeroen.jpg",
+        info: "Biologie en scheikunde vind ik allebei erg interessant. Het waren mijn beste vak op de middelbare school. Toen ik een opleiding moest gaan kiezen had ik werkelijk geen idee wat ik wilde. Ik zat er aan te denken om nog mijn VWO diploma te halen om de studie te gaan doen die ik altijd al zou willen doen. Dat werd mij afgeraden en toen ben ik maar gewoon door gaan zoeken. Toen hoorde ik van bio-informatica en ging ik kijken wat het inhield. Biologie en scheikunde waren geen probleem voor mij, en een beetje prutsen met computers doe ik wel vaker (niet geheel zonder allemaal dingen te slopen of te laten crashen). Dus het leek me vrij snel al geschikt voor mij. Ik heb me ingeschreven en heb daar tot nu toe zeker nog geen spijt van!"
     }, {
         name: "Shameer Khan",
         image: "http://lorempixel.com/1000/1000/cats?cache=2",
         info: "Lorum ipsum"
     }, {
         name: "Martijn Bakker",
-        image: "http://lorempixel.com/1000/1000/cats?cache=3",
-        info: "Lorum ipsum"
+        image: "/img/about/Martijn.jpg",
+        info: "Wat ik tot nu toe van de opleiding vind? Ik vind de opleiding erg meevallen. Misschien een beetje een groot woord maar tot nu toe heb ik pas drie vakken gehad. Scheikunde, Biologie en programmeren. Daarnaast heb ik wel ook een project lopen. Tot nu toe pik ik alles redelijk goed op. Al merk ik wel dat biologie wat lastiger word. Programmeren is voor mij helemaal nieuw maar ik krijg genoeg begeleiding waardoor ik dit ook begin te begrijpen. Programmeren is wel een vak dat je bij moet houden, oefenen, oefenen en nog eens oefenen. Maar tot nu toe vind ik de opleiding erg leuk en is het allemaal goed te doen."
     }, {
         name: "Leon Landwaart",
         image: "http://lorempixel.com/1000/1000/cats?cache=4",
